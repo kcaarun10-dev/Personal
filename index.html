@@ -3,15 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arun Regmi | Official</title>
+    <title>Arun Regmi | Official Website</title>
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <!-- SEO Meta -->
+    <meta name="description" content="Arun Regmi official website. Portfolio, web development projects, game top-ups, Firebase projects, and UI/UX design.">
+    <meta name="keywords" content="Arun Regmi, web developer, game top-up Nepal, Firebase projects, UI UX design, portfolio Nepal">
+    <meta name="author" content="Arun Regmi">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:title" content="Arun Regmi | Official Website">
+    <meta property="og:description" content="Explore Arun Regmi's portfolio, projects, and services. Web development, game top-ups, and digital solutions.">
+    <meta property="og:image" content="main.jpg">
+    <meta property="og:url" content="https://arunregmi.com.np">
+    <meta property="og:type" content="website">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- Your CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
 </head>
 
 <body>
@@ -31,12 +45,12 @@
 <!-- HOME -->
 <section class="home" id="home">
     <div class="home-img">
-        <img src="main.jpg" alt="Arun Regmi">
+        <img src="main.jpg" alt="Arun Regmi - Web Developer and Designer">
     </div>
 
     <div class="home-content">
         <h1>Hi, It's <span>Arun</span></h1>
-        <h3 class="typing-text">I'm a <span></span></h3>
+        <h3 class="typing-text">I'm a <span id="typing"></span></h3>
 
         <p>
             Welcome to Arun Regmi’s official website, where creativity meets technology.
@@ -44,12 +58,12 @@
         </p>
 
         <div class="social-icons">
-              <a href="mailto:kcaarun10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-              <a href="https://www.facebook.com/aruna.regmi.262052"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="mailto:kcaarun10@gmail.com" title="Email Arun Regmi"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.facebook.com/aruna.regmi.262052" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
 
-        <a href="https://wa.me/9810975653" class="btn">Hire Me</a>
+        <a href="https://wa.me/9810975653" class="btn" title="Hire Arun Regmi on WhatsApp">Hire Me</a>
     </div>
 </section>
 
@@ -88,6 +102,52 @@
         game top-up platforms, AI tools, and personal brands.
     </p>
 </section>
+
+<!-- Structured Data for Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Arun Regmi",
+  "url": "https://arunregmi.com.np",
+  "sameAs": [
+    "https://www.facebook.com/aruna.regmi.262052",
+    "https://www.instagram.com/arunregmi",
+    "mailto:kcaarun10@gmail.com"
+  ],
+  "jobTitle": "Web Developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Arun Regmi Personal Projects"
+  }
+}
+</script>
+
+<!-- Typing Effect JavaScript -->
+<script>
+const texts = ["Web Developer", "UI/UX Designer", "Game Top-Up Expert"];
+let count = 0;
+let index = 0;
+let currentText = "";
+let letter = "";
+
+(function type(){
+    if(count === texts.length){
+        count = 0;
+    }
+    currentText = texts[count];
+    letter = currentText.slice(0, ++index);
+
+    document.getElementById("typing").textContent = letter;
+    if(letter.length === currentText.length){
+        count++;
+        index = 0;
+        setTimeout(type, 1500); // wait 1.5s before typing next
+    } else {
+        setTimeout(type, 150);
+    }
+})();
+</script>
 
 </body>
 </html>
