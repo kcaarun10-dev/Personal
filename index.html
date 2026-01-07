@@ -6,6 +6,10 @@
     <title>Arun Regmi | Official Website</title>
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <!-- Google Adsense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9712141373432139"
+     crossorigin="anonymous"></script>
+
     <!-- SEO Meta -->
     <meta name="description" content="Arun Regmi official website. Portfolio, web development projects, game top-ups, Firebase projects, and UI/UX design.">
     <meta name="keywords" content="Arun Regmi, web developer, game top-up Nepal, Firebase projects, UI UX design, portfolio Nepal">
@@ -75,7 +79,7 @@
 
     <div class="home-content">
         <h1>Hi, It's <span>Arun</span></h1>
-        <h3 class="typing-text">I'm a <span id="typing"></span></h3>
+        <h3 class="typing-text">I'm a <span>Web Developer</span></h3>
 
         <p>
             Welcome to Arun Regmi's official website, where creativity meets technology.
@@ -148,33 +152,7 @@
 }
 </script>
 
-<!-- Typing Effect JavaScript -->
-<script>
-const texts = ["Web Developer", "UI/UX Designer", "Game Top-Up Expert"];
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
-
-(function type(){
-    if(count === texts.length){
-        count = 0;
-    }
-    currentText = texts[count];
-    letter = currentText.slice(0, ++index);
-
-    document.getElementById("typing").textContent = letter;
-    if(letter.length === currentText.length){
-        count++;
-        index = 0;
-        setTimeout(type, 1500); // wait 1.5s before typing next
-    } else {
-        setTimeout(type, 150);
-    }
-})();
-</script>
-
-<!-- Mobile Menu and Smooth Scroll JavaScript -->
+<!-- Smooth Scroll JavaScript Only -->
 <script>
 // Mobile Menu Toggle
 const mobileMenu = document.getElementById('mobile-menu');
@@ -232,9 +210,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             document.querySelectorAll('nav a').forEach(link => {
                 link.classList.remove('active');
             });
-            if (this.classList.contains('nav-link')) {
-                this.classList.add('active');
-            }
+            this.classList.add('active');
             
             // Update active class in mobile nav
             document.querySelectorAll('.mobile-nav-links a').forEach(link => {
@@ -285,4 +261,4 @@ window.addEventListener('scroll', () => {
 </script>
 
 </body>
-    </html>
+        </html>
