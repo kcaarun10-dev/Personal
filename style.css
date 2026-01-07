@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ================= HEADER ================= */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo{
+    font-size: 3rem;
+    font-weight: 800;
+    color: #b74b4b;
+}
+
+/* ================= NAV ================= */
+nav{
+    white-space: nowrap;
+}
+
+nav a{
+    display: inline-block;
+    font-size: 1.8rem;
+    margin-left: 3rem;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active{
+    color: #b74b4b;
+    border-bottom: 3px solid #b74b4b;
+}
+
+/* ================= SECTION ================= */
+section{
+    min-height: 100vh;
+    padding: 10rem 9% 5rem;
+}
+
+/* ================= HOME ================= */
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+}
+
+/* ================= TEXT ================= */
+.home-content h1{
+    font-size: 6rem;
+    font-weight: 700;
+}
+
+.home-content h1 span{
+    color: #b74b4b;
+}
+
+.home-content h3{
+    font-size: 3.5rem;
+    margin: 1rem 0;
+}
+
+.home-content p{
+    font-size: 1.6rem;
+    max-width: 600px;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* ================= TYPING EFFECT ================= */
+.typing-text span{
+    position: relative;
+    color: #b74b4b;
+}
+
+.typing-text span::before{
+    content: "Web Developer";
+    animation: words 20s infinite;
+}
+
+.typing-text span::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -8px;
+    width: 2px;
+    height: 100%;
+    background: #b74b4b;
+    animation: cursor 0.7s infinite;
+}
+
+@keyframes cursor{
+    0%,50%,100%{opacity:1;}
+    25%,75%{opacity:0;}
+}
+
+@keyframes words{
+    0%,20%{content:"Web Developer";}
+    21%,40%{content:"Developer";}
+    41%,60%{content:"Web Designer";}
+    61%,80%{content:"Youtuber";}
+    81%,100%{content:"Script Writer";}
+}
+
+/* ================= IMAGE ================= */
+.home-img{
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 0 20px #b74b4b,
+        0 0 60px rgba(183,75,75,0.6),
+        0 0 120px rgba(183,75,75,0.4);
+}
+
+.home-img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ================= SOCIAL ================= */
+.social-icons a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin: 3rem 1.5rem 3rem 0;
+    border-radius: 50%;
+    border: 2px solid #b74b4b;
+    color: #b74b4b;
+    font-size: 2rem;
+    transition: 0.3s;
+}
+
+.social-icons a:hover{
+    background: #b74b4b;
+    color: #000;
+    transform: scale(1.2) translateY(-5px);
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+/* ================= BUTTON ================= */
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    border-radius: 4rem;
+    border: 2px solid #b74b4b;
+    color: #b74b4b;
+    font-size: 1.6rem;
+    letter-spacing: 0.3rem;
+    transition: 0.3s;
+}
+
+.btn:hover{
+    background: #b74b4b;
+    color: #000;
+    box-shadow: 0 0 25px #b74b4b;
+}
+
+/* ================= INFO SECTIONS ================= */
+#services, #skills, #education, #experience{
+    text-align: center;
+}
+
+#services h1,
+#skills h1,
+#education h1,
+#experience h1{
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #b74b4b;
+}
+
+#services p,
+#skills p,
+#education p,
+#experience p{
+    font-size: 1.6rem;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width: 995px){
+    .home{
+        flex-direction: column;
+        gap: 4rem;
+        text-align: center;
+    }
+
+    nav a{
+        margin-left: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .home-content h1{
+        font-size: 4.5rem;
+    }
+
+    .home-img{
+        width: 260px;
+        height: 260px;
+    }
+}
+
+@media(max-width: 600px){
+    header{
+        padding: 1rem 5%;
+    }
+
+    .logo{
+        font-size: 2.5rem;
+    }
+
+    nav a{
+        font-size: 1.4rem;
+        margin-left: 1.5rem;
+    }
+
+    .home-content h1{
+        font-size: 3.8rem;
+    }
+
+    .home-content h3{
+        font-size: 2.2rem;
+    }
+
+    .home-img{
+        width: 220px;
+        height: 220px;
+    }
+}
