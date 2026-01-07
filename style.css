@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
+/* ========== RESET ========== */
 *{
     margin: 0;
     padding: 0;
@@ -23,7 +24,7 @@ body{
     overflow-x: hidden;
 }
 
-/* ================= HEADER ================= */
+/* ========== HEADER ========== */
 header{
     position: fixed;
     top: 0;
@@ -31,9 +32,9 @@ header{
     width: 100%;
     padding: 1.5rem 9%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: rgba(0,0,0,0.8);
+    justify-content: space-between;
+    background: rgba(0,0,0,0.85);
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
@@ -44,17 +45,28 @@ header{
     color: #b74b4b;
 }
 
-/* ================= NAV ================= */
+/* ========== NAVBAR (SCROLLABLE) ========== */
 nav{
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    overflow-x: auto;
     white-space: nowrap;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar */
+nav::-webkit-scrollbar{
+    display: none;
 }
 
 nav a{
-    display: inline-block;
+    flex-shrink: 0;
     font-size: 1.8rem;
-    margin-left: 3rem;
     font-weight: 500;
     border-bottom: 3px solid transparent;
+    padding-bottom: 0.5rem;
     transition: 0.3s;
 }
 
@@ -64,13 +76,13 @@ nav a.active{
     border-bottom: 3px solid #b74b4b;
 }
 
-/* ================= SECTION ================= */
+/* ========== SECTION ========== */
 section{
     min-height: 100vh;
     padding: 10rem 9% 5rem;
 }
 
-/* ================= HOME ================= */
+/* ========== HOME ========== */
 .home{
     display: flex;
     align-items: center;
@@ -78,7 +90,7 @@ section{
     gap: 8rem;
 }
 
-/* ================= TEXT ================= */
+/* ========== TEXT ========== */
 .home-content h1{
     font-size: 6rem;
     font-weight: 700;
@@ -100,42 +112,7 @@ section{
     color: #ddd;
 }
 
-/* ================= TYPING EFFECT ================= */
-.typing-text span{
-    position: relative;
-    color: #b74b4b;
-}
-
-.typing-text span::before{
-    content: "Web Developer";
-    animation: words 20s infinite;
-}
-
-.typing-text span::after{
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -8px;
-    width: 2px;
-    height: 100%;
-    background: #b74b4b;
-    animation: cursor 0.7s infinite;
-}
-
-@keyframes cursor{
-    0%,50%,100%{opacity:1;}
-    25%,75%{opacity:0;}
-}
-
-@keyframes words{
-    0%,20%{content:"Web Developer";}
-    21%,40%{content:"Developer";}
-    41%,60%{content:"Web Designer";}
-    61%,80%{content:"Youtuber";}
-    81%,100%{content:"Script Writer";}
-}
-
-/* ================= IMAGE ================= */
+/* ========== IMAGE ========== */
 .home-img{
     width: 360px;
     height: 360px;
@@ -156,7 +133,7 @@ section{
     object-fit: cover;
 }
 
-/* ================= SOCIAL ================= */
+/* ========== SOCIAL ICONS ========== */
 .social-icons a{
     display: inline-flex;
     align-items: center;
@@ -178,7 +155,7 @@ section{
     box-shadow: 0 0 25px #b74b4b;
 }
 
-/* ================= BUTTON ================= */
+/* ========== BUTTON ========== */
 .btn{
     display: inline-block;
     padding: 1rem 2.8rem;
@@ -196,7 +173,7 @@ section{
     box-shadow: 0 0 25px #b74b4b;
 }
 
-/* ================= INFO SECTIONS ================= */
+/* ========== INFO SECTIONS ========== */
 #services, #skills, #education, #experience{
     text-align: center;
 }
@@ -221,17 +198,12 @@ section{
     color: #ddd;
 }
 
-/* ================= RESPONSIVE ================= */
-@media(max-width: 995px){
+/* ========== RESPONSIVE ========== */
+@media (max-width: 995px){
     .home{
         flex-direction: column;
         gap: 4rem;
         text-align: center;
-    }
-
-    nav a{
-        margin-left: 2rem;
-        font-size: 1.6rem;
     }
 
     .home-content h1{
@@ -244,9 +216,9 @@ section{
     }
 }
 
-@media(max-width: 600px){
+@media (max-width: 768px){
     header{
-        padding: 1rem 5%;
+        padding: 1.2rem 5%;
     }
 
     .logo{
@@ -254,10 +226,12 @@ section{
     }
 
     nav a{
-        font-size: 1.4rem;
-        margin-left: 1.5rem;
+        font-size: 1.5rem;
+        padding: 0.5rem 0.8rem;
     }
+}
 
+@media (max-width: 600px){
     .home-content h1{
         font-size: 3.8rem;
     }
@@ -270,4 +244,4 @@ section{
         width: 220px;
         height: 220px;
     }
-}
+    }
