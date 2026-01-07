@@ -25,10 +25,7 @@
     <link rel="stylesheet" href="style.css">
 
     <!-- Favicon -->
-    <!-- Favicon for browsers -->
     <link rel="icon" href="favicon.png" type="image/png">
-
-    <!-- Larger icon for Google / Android -->
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="icon" sizes="192x192" href="favicon.png">
 
@@ -44,8 +41,30 @@
         <a href="#services">Services</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
-        <a href="#experience">Experience</a>   
+        <a href="#experience">Experience</a>
+        
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
     </nav>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="#home" class="logo">Arun</a>
+            <div class="close-menu" id="close-menu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+        </div>
+    </div>
 </header>
 
 <!-- HOME -->
@@ -59,7 +78,7 @@
         <h3 class="typing-text">I'm a <span id="typing"></span></h3>
 
         <p>
-            Welcome to Arun Regmi’s official website, where creativity meets technology.
+            Welcome to Arun Regmi's official website, where creativity meets technology.
             I build modern, fast, and secure digital experiences.
         </p>
 
@@ -155,5 +174,115 @@ let letter = "";
 })();
 </script>
 
+<!-- Mobile Menu and Smooth Scroll JavaScript -->
+<script>
+// Mobile Menu Toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const closeMenu = document.getElementById('close-menu');
+const mobileNav = document.getElementById('mobile-nav');
+const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+
+// Open mobile menu
+mobileMenu.addEventListener('click', () => {
+    mobileNav.classList.add('active');
+    document.body.style.overflow = 'hidden';
+});
+
+// Close mobile menu
+closeMenu.addEventListener('click', () => {
+    mobileNav.classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// Close menu when clicking on a mobile link
+mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+});
+
+// Close menu when clicking outside on mobile
+document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 995) {
+        if (!mobileNav.contains(e.target) && !mobileMenu.contains(e.target) && mobileNav.classList.contains('active')) {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    }
+});
+
+// Smooth scroll for all anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            // Close mobile menu if open
+            if (mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Update active class in desktop nav
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+            });
+            if (this.classList.contains('nav-link')) {
+                this.classList.add('active');
+            }
+            
+            // Update active class in mobile nav
+            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === targetId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Smooth scroll
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Update active nav on scroll
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section');
+    const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.clientHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            // Update desktop nav
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update mobile nav
+            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+});
+</script>
+
 </body>
-</html>
+    </html>
