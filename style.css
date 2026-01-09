@@ -640,3 +640,110 @@ section::before {
         font-size: 1.4rem;
     }
     }
+/* ================= TOOLS / TECH STACK ================= */
+#tools {
+    text-align: center;
+    align-items: center;
+}
+
+#tools h1 {
+    font-size: 4.5rem;
+    margin-bottom: 3rem;
+    color: #b74b4b;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+#tools h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: #b74b4b;
+    border-radius: 2px;
+}
+
+/* TOOL CONTAINER */
+.tools-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+/* TOOL CARD */
+.tool-card {
+    width: 150px;
+    height: 150px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    border: 1px solid rgba(183,75,75,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.tool-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+}
+
+.tool-card span {
+    font-size: 1.5rem;
+    color: #ccc;
+    font-weight: 500;
+}
+
+.tool-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    border-color: #b74b4b;
+    box-shadow: 0 10px 30px rgba(183,75,75,0.3);
+}
+
+/* ================= MOBILE SCROLL FIX ================= */
+@media (max-width: 768px) {
+    .tools-container {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 1rem;
+        scroll-snap-type: x mandatory;
+    }
+
+    .tool-card {
+        flex: 0 0 auto;
+        scroll-snap-align: center;
+        min-width: 140px;
+    }
+
+    .tools-container::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .tools-container::-webkit-scrollbar-thumb {
+        background: #b74b4b;
+        border-radius: 10px;
+    }
+}
+
+/* EXTRA SMALL SCREENS */
+@media (max-width: 400px) {
+    .tool-card {
+        min-width: 130px;
+        height: 140px;
+    }
+
+    .tool-card span {
+        font-size: 1.3rem;
+    }
+}
