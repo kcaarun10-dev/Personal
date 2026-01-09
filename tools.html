@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arun Regmi | Online Tools</title>
+
+<link rel="icon" href="favicon.png">
+
+<!-- Icons & CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css?v=1.1">
+<link rel="stylesheet" href="tools.css">
+
+<!-- Tools libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+<header>
+    <a href="index.html" class="logo">Arun</a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="tools.html" class="active">Tools</a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="logo">Arun</a>
+            <div class="close-menu" id="close-menu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="tools.html" class="active">Tools</a>
+        </div>
+    </div>
+</header>
+
+<!-- TOOLS -->
+<section id="tools">
+    <div class="tools-container">
+        <h1><span>Online Tools</span></h1>
+        <p class="tools-description">A collection of simple and useful tools to help you with your daily tasks.</p>
+
+        <div class="tools-section">
+            <h2>File Converters</h2>
+            <div class="tools-grid">
+                <div class="tool-card" id="pdf-to-jpg">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-file-pdf"></i>
+                        <h3>PDF to JPG</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <label for="pdfInput" class="file-upload-label">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span class="file-name">Choose a PDF</span>
+                        </label>
+                        <input type="file" id="pdfInput" accept="application/pdf" class="file-upload-input">
+                        <button class="btn" onclick="pdfToJpg()" style="display: none;">Convert</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div class="loader" style="display: none;"></div>
+                        <div id="pdfOutput"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="image-compressor">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-image"></i>
+                        <h3>Image Compressor</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <label for="imgInput" class="file-upload-label">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span class="file-name">Choose an Image</span>
+                        </label>
+                        <input type="file" id="imgInput" accept="image/*" class="file-upload-input">
+                        <button class="btn" onclick="compressImage()" style="display: none;">Compress</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div class="loader" style="display: none;"></div>
+                        <div id="imgOutput"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <h2>Generators</h2>
+            <div class="tools-grid">
+                <div class="tool-card" id="qr-generator-text">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <h3>QR Generator (Text)</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <input type="text" id="qrText" placeholder="Enter text or URL">
+                        <button class="btn" onclick="generateQR()">Generate</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="qrOutput"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="qr-generator-file">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <h3>QR Generator (File)</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <label for="qrFileInput" class="file-upload-label">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                            <span class="file-name">Choose a File</span>
+                        </label>
+                        <input type="file" id="qrFileInput" class="file-upload-input">
+                        <button class="btn" onclick="generateFileQR()" style="display: none;">Generate QR</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div class="loader" style="display: none;"></div>
+                        <div id="fileQrOutput"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="strikethrough-generator">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-strikethrough"></i>
+                        <h3>Strikethrough Text</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <input type="text" id="strikeText" placeholder="Enter text">
+                        <button class="btn" onclick="generateStrike()">Generate</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="strikeOutput"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <h2>Advanced Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card" id="markdown-preview">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-eye"></i>
+                        <h3>Markdown Preview</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <textarea id="markdownInput" placeholder="Enter markdown text..." oninput="previewMarkdown()"></textarea>
+                        <button class="btn" onclick="togglePreview()">Toggle Preview</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="markdownPreview" class="markdown-preview"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="base64-converter">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-code"></i>
+                        <h3>Base64 Converter</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <textarea id="base64Input" placeholder="Enter text to encode/decode..." oninput="autoBase64()"></textarea>
+                        <div class="button-group">
+                            <button class="btn" onclick="encodeBase64()">Encode</button>
+                            <button class="btn" onclick="decodeBase64()">Decode</button>
+                        </div>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="base64Output"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="json-formatter">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-brackets-curly"></i>
+                        <h3>JSON Formatter</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <textarea id="jsonInput" placeholder="Paste JSON here..." oninput="formatJson()"></textarea>
+                        <button class="btn" onclick="minifyJson()">Minify</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="jsonOutput"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="hash-generator">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-hashtag"></i>
+                        <h3>Hash Generator</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <textarea id="hashInput" placeholder="Enter text to hash..." oninput="generateHashes()"></textarea>
+                        <div class="hash-options">
+                            <label><input type="checkbox" id="md5Hash" checked> MD5</label>
+                            <label><input type="checkbox" id="sha1Hash" checked> SHA1</label>
+                            <label><input type="checkbox" id="sha256Hash" checked> SHA256</label>
+                        </div>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="hashOutput"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="timestamp-converter">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-clock"></i>
+                        <h3>Timestamp Converter</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <input type="text" id="timestampInput" placeholder="Enter timestamp or select date">
+                        <input type="datetime-local" id="dateInput" oninput="convertToTimestamp()">
+                        <button class="btn" onclick="convertFromTimestamp()">Convert</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="timestampOutput"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="css-minifier">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-compress-alt"></i>
+                        <h3>CSS Minifier</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <textarea id="cssInput" placeholder="Enter CSS code..." oninput="minifyCss()"></textarea>
+                        <button class="btn" onclick="beautifyCss()">Beautify</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="cssOutput"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tools-section">
+            <h2>Utilities</h2>
+            <div class="tools-grid">
+                <div class="tool-card" id="link-opener">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-link"></i>
+                        <h3>Link Opener</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <input type="text" id="linkUrl" placeholder="Enter URL">
+                        <button class="btn" onclick="openLink()">Open Link</button>
+                    </div>
+                </div>
+                <div class="tool-card" id="text-copier">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-copy"></i>
+                        <h3>Text Copier</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <textarea id="copyText" placeholder="Enter text to copy"></textarea>
+                        <button class="btn" onclick="copyText()">Copy to Clipboard</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <span class="copy-notification">Copied!</span>
+                    </div>
+                </div>
+                <div class="tool-card" id="password-generator">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-key"></i>
+                        <h3>Password Generator</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <label for="passwordLength">Length: <span id="lengthValue">12</span></label>
+                        <input type="range" id="passwordLength" min="4" max="32" value="12" oninput="updateLength()">
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" id="uppercase" checked> Uppercase</label>
+                            <label><input type="checkbox" id="lowercase" checked> Lowercase</label>
+                            <label><input type="checkbox" id="numbers" checked> Numbers</label>
+                            <label><input type="checkbox" id="symbols" checked> Symbols</label>
+                        </div>
+                        <button class="btn" onclick="generatePassword()">Generate</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="passwordOutput"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="color-picker">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-palette"></i>
+                        <h3>Color Picker</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <input type="color" id="colorInput" value="#b74b4b">
+                        <button class="btn" onclick="pickColor()">Get Color Codes</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="colorOutput"></div>
+                    </div>
+                </div>
+                <div class="tool-card" id="word-counter">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-calculator"></i>
+                        <h3>Word Counter</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <textarea id="countText" placeholder="Enter text to count" oninput="countWords()"></textarea>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="countOutput">
+                            <p>Words: <span id="wordCount">0</span></p>
+                            <p>Characters: <span id="charCount">0</span></p>
+                            <p>Characters (no spaces): <span id="charCountNoSpace">0</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool-card" id="url-shortener">
+                    <div class="tool-card-header">
+                        <i class="fa-solid fa-compress"></i>
+                        <h3>URL Encoder/Decoder</h3>
+                    </div>
+                    <div class="tool-card-body">
+                        <input type="text" id="urlInput" placeholder="Enter URL to encode/decode">
+                        <button class="btn" onclick="encodeUrl()">Encode</button>
+                        <button class="btn" onclick="decodeUrl()">Decode</button>
+                    </div>
+                    <div class="tool-card-footer">
+                        <div id="urlOutput"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Arun Regmi. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const pdfInput = document.getElementById('pdfInput');
+    const pdfButton = document.querySelector('#pdf-to-jpg .btn');
+    const pdfLoader = document.querySelector('#pdf-to-jpg .loader');
+    const pdfOutput = document.getElementById('pdfOutput');
+    const pdfLabel = document.querySelector('#pdf-to-jpg .file-name');
+
+    if (pdfInput) {
+        pdfButton.style.display = 'none';
+        pdfInput.addEventListener('change', () => {
+            if (pdfInput.files.length > 0) {
+                pdfLabel.textContent = pdfInput.files[0].name;
+                pdfButton.style.display = 'block';
+            } else {
+                pdfLabel.textContent = 'Choose a PDF';
+                pdfButton.style.display = 'none';
+            }
+        });
+    }
+
+    function pdfToJpg() {
+        const f = pdfInput.files[0];
+        if (!f) return alert("Select a PDF");
+        pdfLoader.style.display = 'block';
+        pdfOutput.innerHTML = '';
+        const r = new FileReader();
+        r.onload = e => {
+            pdfjsLib.getDocument(new Uint8Array(e.target.result)).promise.then(pdf => {
+                pdf.getPage(1).then(p => {
+                    const v = p.getViewport({ scale: 1.5 });
+                    const c = document.createElement('canvas');
+                    c.width = v.width; c.height = v.height;
+                    return p.render({ canvasContext: c.getContext('2d'), viewport: v }).promise;
+                }).then(() => {
+                    pdfLoader.style.display = 'none';
+                    pdfOutput.appendChild(c);
+                });
+            }).catch(error => {
+                pdfLoader.style.display = 'none';
+                alert("Error processing PDF: " + error.message);
+            });
+        };
+        r.readAsArrayBuffer(f);
+    }
+
+    const imgInput = document.getElementById('imgInput');
+    const imgButton = document.querySelector('#image-compressor .btn');
+    const imgLoader = document.querySelector('#image-compressor .loader');
+    const imgOutput = document.getElementById('imgOutput');
+    const imgLabel = document.querySelector('#image-compressor .file-name');
+
+    if (imgInput) {
+        imgButton.style.display = 'none';
+        imgInput.addEventListener('change', () => {
+            if (imgInput.files.length > 0) {
+                imgLabel.textContent = imgInput.files[0].name;
+                imgButton.style.display = 'block';
+            } else {
+                imgLabel.textContent = 'Choose an Image';
+                imgButton.style.display = 'none';
+            }
+        });
+    }
+
+
+    function compressImage() {
+        const f = imgInput.files[0];
+        if (!f) return alert("Select image");
+        imgLoader.style.display = 'block';
+        imgOutput.innerHTML = '';
+        const i = new Image(); 
+        const r = new FileReader();
+        r.onload = e => {
+            i.src = e.target.result;
+            i.onload = () => {
+                const c = document.createElement('canvas');
+                c.width = i.width * 0.6; 
+                c.height = i.height * 0.6;
+                c.getContext('2d').drawImage(i, 0, 0, c.width, c.height);
+                const d = c.toDataURL("image/jpeg", 0.6);
+                imgLoader.style.display = 'none';
+                imgOutput.innerHTML = `<a href="${d}" download="compressed-image.jpg">Download Compressed Image</a>`;
+            };
+            i.onerror = () => {
+                imgLoader.style.display = 'none';
+                alert("Error loading image");
+            };
+        };
+        r.onerror = () => {
+            imgLoader.style.display = 'none';
+            alert("Error reading file");
+        };
+        r.readAsDataURL(f);
+    }
+
+    function generateQR() {
+        const qrText = document.getElementById('qrText').value;
+        const qrOutput = document.getElementById('qrOutput');
+        qrOutput.innerHTML = "";
+        if (qrText) {
+            new QRCode(qrOutput, { 
+                text: qrText, 
+                width: 150, 
+                height: 150,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            setTimeout(() => {
+                const canvas = qrOutput.querySelector('canvas');
+                if (canvas) {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = canvas.toDataURL();
+                    downloadLink.download = 'qrcode.png';
+                    downloadLink.className = 'btn';
+                    downloadLink.textContent = 'Download QR';
+                    downloadLink.style.marginTop = '10px';
+                    qrOutput.appendChild(downloadLink);
+                }
+            }, 100);
+        }
+    }
+
+    const qrFileInput = document.getElementById('qrFileInput');
+    const qrFileButton = document.querySelector('#qr-generator-file .btn');
+    const qrFileLoader = document.querySelector('#qr-generator-file .loader');
+    const fileQrOutput = document.getElementById('fileQrOutput');
+    const qrFileLabel = document.querySelector('#qr-generator-file .file-name');
+
+    if (qrFileInput) {
+        qrFileButton.style.display = 'none';
+        qrFileInput.addEventListener('change', () => {
+            if (qrFileInput.files.length > 0) {
+                const file = qrFileInput.files[0];
+                qrFileLabel.textContent = file.name;
+                qrFileButton.style.display = 'block';
+            } else {
+                qrFileLabel.textContent = 'Choose a File';
+                qrFileButton.style.display = 'none';
+            }
+        });
+    }
+
+    function generateFileQR() {
+        const file = qrFileInput.files[0];
+        if (!file) return alert("Please select a file.");
+
+        qrFileLoader.style.display = 'block';
+        fileQrOutput.innerHTML = '';
+
+        const reader = new FileReader();
+        reader.onload = function (event) {
+            const base64String = event.target.result;
+            try {
+                new QRCode(fileQrOutput, {
+                    text: base64String,
+                    width: 200,
+                    height: 200,
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                setTimeout(() => {
+                    const canvas = fileQrOutput.querySelector('canvas');
+                    if (canvas) {
+                        const downloadLink = document.createElement('a');
+                        downloadLink.href = canvas.toDataURL();
+                        downloadLink.download = `qrcode-${file.name}.png`;
+                        downloadLink.className = 'btn';
+                        downloadLink.textContent = 'Download QR';
+                        downloadLink.style.marginTop = '10px';
+                        fileQrOutput.appendChild(downloadLink);
+                    }
+                }, 100);
+            } catch (e) {
+                alert("Could not generate QR code. The file may be too large or in an unsupported format.");
+            } finally {
+                qrFileLoader.style.display = 'none';
+            }
+        };
+        reader.onerror = () => {
+            qrFileLoader.style.display = 'none';
+            alert("Error reading file");
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function openLink() {
+        const url = document.getElementById('linkUrl').value;
+        if (url) {
+            window.open(url, '_blank');
+        }
+    }
+
+    function generateStrike() {
+        const text = document.getElementById('strikeText').value;
+        const output = document.getElementById('strikeOutput');
+        if (text) {
+            output.innerHTML = `<del>${text}</del><button class="btn" onclick="copyStrike()" style="margin-left: 10px;">Copy</button>`;
+        } else {
+            output.innerHTML = '';
+        }
+    }
+
+    function copyStrike() {
+        const text = document.getElementById('strikeText').value;
+        const strikethroughText = text.split('').map(char => {
+            const strikethroughChars = ['̶', '̷', '̵'];
+            return char + strikethroughChars[Math.floor(Math.random() * strikethroughChars.length)];
+        }).join('');
+        
+        navigator.clipboard.writeText(strikethroughText).then(() => {
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 1500);
+        }).catch(() => {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = strikethroughText;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 1500);
+        });
+    }
+
+    function copyText() {
+        const text = document.getElementById('copyText');
+        const notification = document.querySelector('#text-copier .copy-notification');
+        
+        if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.writeText(text.value).then(() => {
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 1500);
+            }).catch(() => {
+                fallbackCopy();
+            });
+        } else {
+            fallbackCopy();
+        }
+        
+        function fallbackCopy() {
+            text.select();
+            text.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 1500);
+        }
+    }
+
+    // Password Generator Functions
+    function updateLength() {
+        const length = document.getElementById('passwordLength').value;
+        document.getElementById('lengthValue').textContent = length;
+    }
+
+    function generatePassword() {
+        const length = parseInt(document.getElementById('passwordLength').value);
+        const useUppercase = document.getElementById('uppercase').checked;
+        const useLowercase = document.getElementById('lowercase').checked;
+        const useNumbers = document.getElementById('numbers').checked;
+        const useSymbols = document.getElementById('symbols').checked;
+        
+        let charset = '';
+        if (useUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        if (useLowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
+        if (useNumbers) charset += '0123456789';
+        if (useSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+        
+        if (charset === '') {
+            alert('Please select at least one character type');
+            return;
+        }
+        
+        let password = '';
+        for (let i = 0; i < length; i++) {
+            password += charset.charAt(Math.floor(Math.random() * charset.length));
+        }
+        
+        const output = document.getElementById('passwordOutput');
+        output.innerHTML = `
+            <input type="text" value="${password}" readonly id="generatedPassword">
+            <button class="btn" onclick="copyPassword()">Copy</button>
+        `;
+    }
+
+    function copyPassword() {
+        const password = document.getElementById('generatedPassword').value;
+        navigator.clipboard.writeText(password).then(() => {
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 1500);
+        });
+    }
+
+    // Color Picker Functions
+    function pickColor() {
+        const color = document.getElementById('colorInput').value;
+        const output = document.getElementById('colorOutput');
+        
+        const rgb = hexToRgb(color);
+        const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+        
+        output.innerHTML = `
+            <div style="background: ${color}; width: 100%; height: 50px; border-radius: 5px; margin-bottom: 10px;"></div>
+            <p><strong>HEX:</strong> ${color}</p>
+            <p><strong>RGB:</strong> rgb(${rgb.r}, ${rgb.g}, ${rgb.b})</p>
+            <p><strong>HSL:</strong> hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)</p>
+            <button class="btn" onclick="copyColor('${color}')">Copy HEX</button>
+        `;
+    }
+
+    function hexToRgb(hex) {
+        const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
+    }
+
+    function rgbToHsl(r, g, b) {
+        r /= 255;
+        g /= 255;
+        b /= 255;
+        const max = Math.max(r, g, b), min = Math.min(r, g, b);
+        let h, s, l = (max + min) / 2;
+
+        if (max === min) {
+            h = s = 0;
+        } else {
+            const d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch (max) {
+                case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+                case g: h = ((b - r) / d + 2) / 6; break;
+                case b: h = ((r - g) / d + 4) / 6; break;
+            }
+        }
+
+        return {
+            h: Math.round(h * 360),
+            s: Math.round(s * 100),
+            l: Math.round(l * 100)
+        };
+    }
+
+    function copyColor(color) {
+        navigator.clipboard.writeText(color).then(() => {
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 1500);
+        });
+    }
+
+    // Word Counter Functions
+    function countWords() {
+        const text = document.getElementById('countText').value;
+        const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length;
+        const chars = text.length;
+        const charsNoSpace = text.replace(/\s/g, '').length;
+        
+        document.getElementById('wordCount').textContent = words;
+        document.getElementById('charCount').textContent = chars;
+        document.getElementById('charCountNoSpace').textContent = charsNoSpace;
+    }
+
+    // URL Encoder/Decoder Functions
+    function encodeUrl() {
+        const input = document.getElementById('urlInput').value;
+        const output = document.getElementById('urlOutput');
+        if (input) {
+            const encoded = encodeURIComponent(input);
+            output.innerHTML = `
+                <p><strong>Encoded:</strong></p>
+                <input type="text" value="${encoded}" readonly>
+                <button class="btn" onclick="copyUrl('${encoded}')">Copy</button>
+            `;
+        }
+    }
+
+    function decodeUrl() {
+        const input = document.getElementById('urlInput').value;
+        const output = document.getElementById('urlOutput');
+        if (input) {
+            try {
+                const decoded = decodeURIComponent(input);
+                output.innerHTML = `
+                    <p><strong>Decoded:</strong></p>
+                    <input type="text" value="${decoded}" readonly>
+                    <button class="btn" onclick="copyUrl('${decoded}')">Copy</button>
+                `;
+            } catch (e) {
+                output.innerHTML = '<p style="color: red;">Invalid URL to decode</p>';
+            }
+        }
+    }
+
+    function copyUrl(url) {
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(() => {
+                btn.textContent = originalText;
+            }, 1500);
+        });
+    }
+
+    // Advanced Tools Functions with Smooth Animations
+    
+    // Markdown Preview
+    let previewVisible = false;
+    
+    function togglePreview() {
+        const preview = document.getElementById('markdownPreview');
+        previewVisible = !previewVisible;
+        
+        if (previewVisible) {
+            preview.style.opacity = '0';
+            preview.style.display = 'block';
+            setTimeout(() => {
+                preview.style.opacity = '1';
+            }, 10);
+        } else {
+            preview.style.opacity = '0';
+            setTimeout(() => {
+                preview.style.display = 'none';
+            }, 300);
+        }
+    }
+    
+    function previewMarkdown() {
+        const input = document.getElementById('markdownInput').value;
+        const preview = document.getElementById('markdownPreview');
+        
+        if (!input) {
+            preview.innerHTML = '';
+            return;
+        }
+        
+        // Simple markdown parsing
+        let html = input
+            .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+            .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+            .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+            .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+            .replace(/\*(.*)\*/gim, '<em>$1</em>')
+            .replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2" target="_blank">$1</a>')
+            .replace(/`([^`]+)`/gim, '<code>$1</code>')
+            .replace(/\n\n/gim, '</p><p>')
+            .replace(/\n/gim, '<br>');
+        
+        preview.innerHTML = `<p>${html}</p>`;
+        preview.style.opacity = '0';
+        setTimeout(() => {
+            preview.style.opacity = '1';
+        }, 50);
+    }
+    
+    // Base64 Converter
+    function encodeBase64() {
+        const input = document.getElementById('base64Input').value;
+        const output = document.getElementById('base64Output');
+        
+        if (!input) {
+            output.innerHTML = '<p style="color: #999;">Enter text to encode</p>';
+            return;
+        }
+        
+        try {
+            const encoded = btoa(unescape(encodeURIComponent(input)));
+            output.innerHTML = `
+                <div class="result-box">
+                    <h4>Encoded:</h4>
+                    <input type="text" value="${encoded}" readonly>
+                    <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+                </div>
+            `;
+            animateResult(output);
+        } catch (e) {
+            output.innerHTML = '<p style="color: #ff6b6b;">Error encoding text</p>';
+        }
+    }
+    
+    function decodeBase64() {
+        const input = document.getElementById('base64Input').value;
+        const output = document.getElementById('base64Output');
+        
+        if (!input) {
+            output.innerHTML = '<p style="color: #999;">Enter base64 to decode</p>';
+            return;
+        }
+        
+        try {
+            const decoded = decodeURIComponent(escape(atob(input)));
+            output.innerHTML = `
+                <div class="result-box">
+                    <h4>Decoded:</h4>
+                    <textarea readonly>${decoded}</textarea>
+                    <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+                </div>
+            `;
+            animateResult(output);
+        } catch (e) {
+            output.innerHTML = '<p style="color: #ff6b6b;">Invalid base64 string</p>';
+        }
+    }
+    
+    function autoBase64() {
+        const input = document.getElementById('base64Input').value;
+        if (input) {
+            encodeBase64();
+        }
+    }
+    
+    // JSON Formatter
+    function formatJson() {
+        const input = document.getElementById('jsonInput').value;
+        const output = document.getElementById('jsonOutput');
+        
+        if (!input) {
+            output.innerHTML = '';
+            return;
+        }
+        
+        try {
+            const parsed = JSON.parse(input);
+            const formatted = JSON.stringify(parsed, null, 2);
+            output.innerHTML = `
+                <div class="result-box">
+                    <h4>Formatted JSON:</h4>
+                    <textarea readonly>${formatted}</textarea>
+                    <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+                </div>
+            `;
+            animateResult(output);
+        } catch (e) {
+            output.innerHTML = '<p style="color: #ff6b6b;">Invalid JSON: ' + e.message + '</p>';
+        }
+    }
+    
+    function minifyJson() {
+        const input = document.getElementById('jsonInput').value;
+        const output = document.getElementById('jsonOutput');
+        
+        if (!input) {
+            output.innerHTML = '<p style="color: #999;">Enter JSON to minify</p>';
+            return;
+        }
+        
+        try {
+            const parsed = JSON.parse(input);
+            const minified = JSON.stringify(parsed);
+            output.innerHTML = `
+                <div class="result-box">
+                    <h4>Minified JSON:</h4>
+                    <input type="text" value="${minified}" readonly>
+                    <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+                </div>
+            `;
+            animateResult(output);
+        } catch (e) {
+            output.innerHTML = '<p style="color: #ff6b6b;">Invalid JSON: ' + e.message + '</p>';
+        }
+    }
+    
+    // Hash Generator
+    async function generateHashes() {
+        const input = document.getElementById('hashInput').value;
+        const output = document.getElementById('hashOutput');
+        
+        if (!input) {
+            output.innerHTML = '';
+            return;
+        }
+        
+        const md5Checked = document.getElementById('md5Hash').checked;
+        const sha1Checked = document.getElementById('sha1Hash').checked;
+        const sha256Checked = document.getElementById('sha256Hash').checked;
+        
+        let hashes = '<div class="hash-results">';
+        
+        if (md5Checked) {
+            const md5Hash = await simpleHash(input, 'md5');
+            hashes += `
+                <div class="hash-item">
+                    <h4>MD5:</h4>
+                    <input type="text" value="${md5Hash}" readonly>
+                    <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+                </div>
+            `;
+        }
+        
+        if (sha1Checked) {
+            const sha1Hash = await simpleHash(input, 'sha1');
+            hashes += `
+                <div class="hash-item">
+                    <h4>SHA1:</h4>
+                    <input type="text" value="${sha1Hash}" readonly>
+                    <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+                </div>
+            `;
+        }
+        
+        if (sha256Checked) {
+            const sha256Hash = await simpleHash(input, 'sha256');
+            hashes += `
+                <div class="hash-item">
+                    <h4>SHA256:</h4>
+                    <input type="text" value="${sha256Hash}" readonly>
+                    <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+                </div>
+            `;
+        }
+        
+        hashes += '</div>';
+        output.innerHTML = hashes;
+        animateResult(output);
+    }
+    
+    async function simpleHash(str, algorithm) {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(str);
+        const hashBuffer = await crypto.subtle.digest(algorithm, data);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+    
+    // Timestamp Converter
+    function convertFromTimestamp() {
+        const input = document.getElementById('timestampInput').value;
+        const output = document.getElementById('timestampOutput');
+        
+        if (!input) {
+            output.innerHTML = '<p style="color: #999;">Enter a timestamp</p>';
+            return;
+        }
+        
+        try {
+            const timestamp = parseInt(input);
+            const date = new Date(timestamp);
+            
+            if (isNaN(date.getTime())) {
+                output.innerHTML = '<p style="color: #ff6b6b;">Invalid timestamp</p>';
+                return;
+            }
+            
+            output.innerHTML = `
+                <div class="result-box">
+                    <h4>Date & Time:</h4>
+                    <p><strong>Local:</strong> ${date.toLocaleString()}</p>
+                    <p><strong>UTC:</strong> ${date.toUTCString()}</p>
+                    <p><strong>ISO:</strong> ${date.toISOString()}</p>
+                    <p><strong>Unix:</strong> ${timestamp}</p>
+                </div>
+            `;
+            animateResult(output);
+        } catch (e) {
+            output.innerHTML = '<p style="color: #ff6b6b;">Error converting timestamp</p>';
+        }
+    }
+    
+    function convertToTimestamp() {
+        const dateInput = document.getElementById('dateInput').value;
+        const output = document.getElementById('timestampOutput');
+        
+        if (!dateInput) {
+            output.innerHTML = '';
+            return;
+        }
+        
+        try {
+            const date = new Date(dateInput);
+            const timestamp = date.getTime();
+            
+            output.innerHTML = `
+                <div class="result-box">
+                    <h4>Timestamp:</h4>
+                    <p><strong>Unix (ms):</strong> ${timestamp}</p>
+                    <p><strong>Unix (s):</strong> ${Math.floor(timestamp / 1000)}</p>
+                    <p><strong>Date:</strong> ${date.toLocaleString()}</p>
+                </div>
+            `;
+            animateResult(output);
+        } catch (e) {
+            output.innerHTML = '<p style="color: #ff6b6b;">Error converting date</p>';
+        }
+    }
+    
+    // CSS Minifier/Beautifier
+    function minifyCss() {
+        const input = document.getElementById('cssInput').value;
+        const output = document.getElementById('cssOutput');
+        
+        if (!input) {
+            output.innerHTML = '';
+            return;
+        }
+        
+        const minified = input
+            .replace(/\/\*[\s\S]*?\*\//g, '') // Remove comments
+            .replace(/\s+/g, ' ') // Collapse whitespace
+            .replace(/;\s*}/g, '}') // Remove semicolons before closing braces
+            .replace(/\s*{\s*/g, '{') // Remove spaces around opening braces
+            .replace(/\s*}\s*/g, '}') // Remove spaces around closing braces
+            .replace(/\s*;\s*/g, ';') // Remove spaces around semicolons
+            .replace(/\s*:\s*/g, ':') // Remove spaces around colons
+            .replace(/\s*,\s*/g, ',') // Remove spaces around commas
+            .trim();
+        
+        const savings = ((input.length - minified.length) / input.length * 100).toFixed(1);
+        
+        output.innerHTML = `
+            <div class="result-box">
+                <h4>Minified CSS:</h4>
+                <p class="size-info">Size reduced by ${savings}% (${input.length} → ${minified.length} chars)</p>
+                <textarea readonly>${minified}</textarea>
+                <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+            </div>
+        `;
+        animateResult(output);
+    }
+    
+    function beautifyCss() {
+        const input = document.getElementById('cssInput').value;
+        const output = document.getElementById('cssOutput');
+        
+        if (!input) {
+            output.innerHTML = '<p style="color: #999;">Enter CSS to beautify</p>';
+            return;
+        }
+        
+        const beautified = input
+            .replace(/}/g, '}\n')
+            .replace(/\{/g, ' {\n  ')
+            .replace(/;/g, ';\n  ')
+            .replace(/\n\s*\n/g, '\n')
+            .replace(/  }/g, '}')
+            .trim();
+        
+        output.innerHTML = `
+            <div class="result-box">
+                <h4>Beautified CSS:</h4>
+                <textarea readonly>${beautified}</textarea>
+                <button class="btn" onclick="copyTextFromInput(this)">Copy</button>
+            </div>
+        `;
+        animateResult(output);
+    }
+    
+    // Utility Functions
+    function copyTextFromInput(button) {
+        const input = button.previousElementSibling;
+        const text = input.value || input.textContent;
+        
+        navigator.clipboard.writeText(text).then(() => {
+            const originalText = button.textContent;
+            button.textContent = 'Copied!';
+            button.style.background = '#4caf50';
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 1500);
+        });
+    }
+    
+    function animateResult(element) {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(10px)';
+        setTimeout(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, 50);
+    }
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
