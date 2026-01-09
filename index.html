@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arun Regmi | Official Website</title>
+
+<link rel="icon" href="favicon.png">
+
+<!-- Google Adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9712141373432139" crossorigin="anonymous"></script>
+
+<!-- SEO -->
+<meta name="description" content="Arun Regmi official website. Portfolio, web development projects, game top-ups, Firebase projects, and UI/UX design.">
+<meta name="keywords" content="Arun Regmi, web developer, portfolio Nepal">
+<meta name="author" content="Arun Regmi">
+
+<!-- Social -->
+<meta property="og:title" content="Arun Regmi | Official Website">
+<meta property="og:description" content="Explore Arun Regmi's portfolio, projects, and services.">
+<meta property="og:image" content="main.jpg">
+<meta property="og:url" content="https://arunregmi.com.np">
+<meta property="og:type" content="website">
+
+<!-- Icons & CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css?v=1.1">
+
+<!-- Tools libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+<header>
+    <a href="#home" class="logo">Arun</a>
+
+    <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#services">Services</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="#home" class="logo">Arun</a>
+            <div class="close-menu" id="close-menu">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+        <div class="mobile-nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#education">Education</a>
+            <a href="#experience">Experience</a>
+        </div>
+    </div>
+</header>
+
+<!-- HOME -->
+<section class="home" id="home">
+    <div class="home-img">
+        <img src="main.jpg" alt="Arun Regmi">
+    </div>
+
+    <div class="home-content">
+        <h1>Hi, It's <span>Arun</span></h1>
+        <h3 class="typing-text">I'm a <span>Web Developer</span></h3>
+
+        <p>
+            I build modern, fast, and secure websites and useful online tools.
+        </p>
+
+        <div class="social-icons">
+            <a href="mailto:kcaarun10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.facebook.com/aruna.regmi.262052"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/arunregmi.com.np/"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+
+        <a href="https://wa.link/0mmt5c" class="btn">Talk to Me</a>
+        <a href="tools.html" class="btn">Use Tools</a>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <h1><span>Services</span></h1>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <h3>Web Development</h3>
+            <p>Custom websites, web applications, and modern responsive designs using latest technologies.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fa-solid fa-fire"></i>
+            </div>
+            <h3>Firebase Systems</h3>
+            <p>Real-time databases, authentication, and cloud functions for scalable web applications.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fa-brands fa-github"></i>
+            </div>
+            <h3>GitHub Hosting</h3>
+            <p>Professional deployment and hosting solutions using GitHub Pages and Actions.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fa-solid fa-palette"></i>
+            </div>
+            <h3>UI/UX Design</h3>
+            <p>Beautiful, intuitive interfaces with focus on user experience and modern design principles.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fa-solid fa-globe"></i>
+            </div>
+            <h3>Domain & DNS</h3>
+            <p>Domain registration, Cloudflare setup, and DNS management for optimal performance.</p>
+        </div>
+        <div class="service-card">
+            <div class="service-icon">
+                <i class="fa-solid fa-tools"></i>
+            </div>
+            <h3>Online Tools</h3>
+            <p>Custom development of useful online tools and utilities for various needs.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h1><span>Skills</span></h1>
+    <div class="skills-container">
+        <div class="skills-category">
+            <h3>Frontend Development</h3>
+            <div class="skill-bars">
+                <div class="skill-item">
+                    <span>HTML/CSS</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="95"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>JavaScript</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>React/Vue</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <h3>Backend & Tools</h3>
+            <div class="skill-bars">
+                <div class="skill-item">
+                    <span>Firebase</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="88"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>GitHub</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="92"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Cloudflare</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="85"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-category">
+            <h3>Design & Optimization</h3>
+            <div class="skill-bars">
+                <div class="skill-item">
+                    <span>UI/UX Design</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="87"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>Performance</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="83"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <span>SEO</span>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-progress="80"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <h1><span>Education</span></h1>
+    <div class="education-timeline">
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>Self-Taught Developer</h3>
+                <p class="timeline-date">2020 - Present</p>
+                <p>Intensive learning through online courses, documentation, and hands-on projects. Mastered modern web development technologies through practical experience.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>Full Stack Development</h3>
+                <p class="timeline-date">2021 - Present</p>
+                <p>Advanced studies in frontend frameworks, backend technologies, and full-stack application development with focus on performance and scalability.</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <i class="fa-solid fa-certificate"></i>
+            </div>
+            <div class="timeline-content">
+                <h3>Professional Certifications</h3>
+                <p class="timeline-date">Ongoing</p>
+                <p>Continuous learning through industry certifications, workshops, and staying updated with latest web technologies and best practices.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <h1><span>Experience</span></h1>
+    <div class="experience-grid">
+        <div class="experience-card">
+            <div class="experience-header">
+                <div class="experience-icon">
+                    <i class="fa-solid fa-globe"></i>
+                </div>
+                <div class="experience-title">
+                    <h3>Live Websites</h3>
+                    <p class="experience-period">2020 - Present</p>
+                </div>
+            </div>
+            <p>Developed and deployed multiple production websites with modern technologies, focusing on performance, SEO, and user experience.</p>
+            <div class="experience-tags">
+                <span>HTML/CSS</span>
+                <span>JavaScript</span>
+                <span>Responsive</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <div class="experience-header">
+                <div class="experience-icon">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                </div>
+                <div class="experience-title">
+                    <h3>E-commerce Systems</h3>
+                    <p class="experience-period">2021 - Present</p>
+                </div>
+            </div>
+            <p>Created complete e-commerce solutions with payment integration, inventory management, and admin dashboards for various clients.</p>
+            <div class="experience-tags">
+                <span>Firebase</span>
+                <span>Payment APIs</span>
+                <span>Admin Panels</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <div class="experience-header">
+                <div class="experience-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+                <div class="experience-title">
+                    <h3>AI Tools</h3>
+                    <p class="experience-period">2022 - Present</p>
+                </div>
+            </div>
+            <p>Developed AI-powered tools and utilities that leverage machine learning APIs for text processing, image analysis, and automation.</p>
+            <div class="experience-tags">
+                <span>AI APIs</span>
+                <span>Automation</span>
+                <span>Python</span>
+            </div>
+        </div>
+        <div class="experience-card">
+            <div class="experience-header">
+                <div class="experience-icon">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div class="experience-title">
+                    <h3>Personal Brands</h3>
+                    <p class="experience-period">2021 - Present</p>
+                </div>
+            </div>
+            <p>Helped individuals and businesses establish their online presence through custom websites, branding, and digital marketing integration.</p>
+            <div class="experience-tags">
+                <span>Branding</span>
+                <span>SEO</span>
+                <span>Social Media</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h1><span>Featured Projects</span></h1>
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-image">
+                <div class="project-placeholder">
+                    <i class="fa-solid fa-tools"></i>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>Online Tools Suite</h3>
+                <p>A comprehensive collection of 17+ online tools including file converters, generators, and utilities with smooth animations.</p>
+                <div class="project-tech">
+                    <span>HTML/CSS</span>
+                    <span>JavaScript</span>
+                    <span>PDF.js</span>
+                </div>
+                <a href="tools.html" class="project-link">View Project</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">
+                <div class="project-placeholder">
+                    <i class="fa-solid fa-store"></i>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>E-commerce Platform</h3>
+                <p>Full-featured online shopping platform with payment integration, inventory management, and admin dashboard.</p>
+                <div class="project-tech">
+                    <span>Firebase</span>
+                    <span>JavaScript</span>
+                    <span>Payment API</span>
+                </div>
+                <a href="#" class="project-link">Coming Soon</a>
+            </div>
+        </div>
+        <div class="project-card">
+            <div class="project-image">
+                <div class="project-placeholder">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3>AI Content Generator</h3>
+                <p>AI-powered content generation tool with multiple templates and customization options for various content types.</p>
+                <div class="project-tech">
+                    <span>AI API</span>
+                    <span>React</span>
+                    <span>Node.js</span>
+                </div>
+                <a href="#" class="project-link">In Development</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Arun Regmi</h3>
+            <p>Creating modern web experiences with passion and precision.</p>
+            <div class="footer-social">
+                <a href="mailto:kcaarun10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://www.facebook.com/aruna.regmi.262052"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.instagram.com/arunregmi.com.np/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.link/0mmt5c"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="tools.html">Tools</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Services</h3>
+            <ul>
+                <li>Web Development</li>
+                <li>Firebase Systems</li>
+                <li>UI/UX Design</li>
+                <li>Online Tools</li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: kcaarun10@gmail.com</p>
+            <p>WhatsApp: +977 XXXXXXXXXX</p>
+            <p>Location: Nepal</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Arun Regmi. All Rights Reserved. | Made with <i class="fa-solid fa-heart" style="color: #b74b4b;"></i> in Nepal</p>
+    </div>
+</footer>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"Person",
+ "name":"Arun Regmi",
+ "url":"https://arunregmi.com.np",
+ "jobTitle":"Web Developer"
+}
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
