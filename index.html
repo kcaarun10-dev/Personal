@@ -1,38 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arun Regmi | Official Website</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arun Regmi | Official Website</title>
 
-    <!-- Google Adsense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9712141373432139"
-     crossorigin="anonymous"></script>
+<link rel="icon" href="favicon.png">
 
-    <!-- SEO Meta -->
-    <meta name="description" content="Arun Regmi official website. Portfolio, web development projects, game top-ups, Firebase projects, and UI/UX design.">
-    <meta name="keywords" content="Arun Regmi, web developer, game top-up Nepal, Firebase projects, UI UX design, portfolio Nepal">
-    <meta name="author" content="Arun Regmi">
+<!-- Google Adsense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9712141373432139" crossorigin="anonymous"></script>
 
-    <!-- Open Graph / Social Sharing -->
-    <meta property="og:title" content="Arun Regmi | Official Website">
-    <meta property="og:description" content="Explore Arun Regmi's portfolio, projects, and services. Web development, game top-ups, and digital solutions.">
-    <meta property="og:image" content="main.jpg">
-    <meta property="og:url" content="https://arunregmi.com.np">
-    <meta property="og:type" content="website">
+<!-- SEO -->
+<meta name="description" content="Arun Regmi official website. Portfolio, web development projects, game top-ups, Firebase projects, and UI/UX design.">
+<meta name="keywords" content="Arun Regmi, web developer, portfolio Nepal">
+<meta name="author" content="Arun Regmi">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<!-- Social -->
+<meta property="og:title" content="Arun Regmi | Official Website">
+<meta property="og:description" content="Explore Arun Regmi's portfolio, projects, and services.">
+<meta property="og:image" content="main.jpg">
+<meta property="og:url" content="https://arunregmi.com.np">
+<meta property="og:type" content="website">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<!-- Icons & CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="style.css">
 
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="icon" sizes="192x192" href="favicon.png">
-
+<!-- Tools libraries -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
 </head>
 
 <body>
@@ -44,16 +40,15 @@
         <a href="#home" class="active">Home</a>
         <a href="#services">Services</a>
         <a href="#skills">Skills</a>
+        <a href="#tools">Tools</a>
         <a href="#education">Education</a>
         <a href="#experience">Experience</a>
-        
-        <!-- Mobile Menu Toggle -->
+
         <div class="menu-toggle" id="mobile-menu">
             <i class="fas fa-bars"></i>
         </div>
     </nav>
-    
-    <!-- Mobile Navigation -->
+
     <div class="mobile-nav" id="mobile-nav">
         <div class="mobile-nav-header">
             <a href="#home" class="logo">Arun</a>
@@ -61,10 +56,12 @@
                 <i class="fas fa-times"></i>
             </div>
         </div>
+
         <div class="mobile-nav-links">
             <a href="#home" class="active">Home</a>
             <a href="#services">Services</a>
             <a href="#skills">Skills</a>
+            <a href="#tools">Tools</a>
             <a href="#education">Education</a>
             <a href="#experience">Experience</a>
         </div>
@@ -74,7 +71,7 @@
 <!-- HOME -->
 <section class="home" id="home">
     <div class="home-img">
-        <img src="main.jpg" alt="Arun Regmi - Web Developer and Designer">
+        <img src="main.jpg" alt="Arun Regmi">
     </div>
 
     <div class="home-content">
@@ -82,183 +79,141 @@
         <h3 class="typing-text">I'm a <span>Web Developer</span></h3>
 
         <p>
-            Welcome to Arun Regmi's official website, where creativity meets technology.
-            I build modern, fast, and secure digital experiences.
+            I build modern, fast, and secure websites and useful online tools.
         </p>
 
         <div class="social-icons">
-            <a href="mailto:kcaarun10@gmail.com" title="Email Arun Regmi"><i class="fa-solid fa-envelope"></i></a>
-            <a href="https://www.facebook.com/aruna.regmi.262052" title="Facebook"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="mailto:kcaarun10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://www.facebook.com/aruna.regmi.262052"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
         </div>
 
-        <a href="https://wa.me/9810975653" class="btn" title="Hire Arun Regmi on WhatsApp">Hire Me</a>
+        <a href="#tools" class="btn">Use Tools</a>
     </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services">
     <h1><span>Services</span></h1>
-    <p style="font-size:1.6rem; max-width:700px;">
-        Website development, game top-up systems, Firebase authentication,
-        GitHub hosting, UI/UX design, domain & Cloudflare setup.
+    <p>
+        Website development, Firebase systems, GitHub hosting,
+        UI/UX design, domain & Cloudflare setup.
     </p>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
     <h1><span>Skills</span></h1>
-    <p style="font-size:1.6rem; max-width:700px;">
-        HTML, CSS, JavaScript, Firebase, GitHub Pages, Cloudflare DNS,
-        Responsive UI design, animations, and performance optimization.
+    <p>
+        HTML, CSS, JavaScript, Firebase, GitHub Pages,
+        Cloudflare DNS, responsive UI & performance optimization.
     </p>
+</section>
+
+<!-- TOOLS -->
+<section id="tools">
+    <h1><span>Online Tools</span></h1>
+
+    <div class="tools-grid">
+
+        <div class="tool-card">
+            <i class="fa-solid fa-file-pdf"></i>
+            <h3>PDF to JPG</h3>
+            <input type="file" id="pdfInput" accept="application/pdf">
+            <button onclick="pdfToJpg()">Convert</button>
+            <div id="pdfOutput"></div>
+        </div>
+
+        <div class="tool-card">
+            <i class="fa-solid fa-image"></i>
+            <h3>Image Compressor</h3>
+            <input type="file" id="imgInput" accept="image/*">
+            <button onclick="compressImage()">Compress</button>
+            <div id="imgOutput"></div>
+        </div>
+
+        <div class="tool-card">
+            <i class="fa-solid fa-qrcode"></i>
+            <h3>QR Generator</h3>
+            <input type="text" id="qrText" placeholder="Enter text or URL">
+            <button onclick="generateQR()">Generate</button>
+            <div id="qrOutput"></div>
+        </div>
+
+    </div>
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
     <h1><span>Education</span></h1>
-    <p style="font-size:1.6rem; max-width:700px;">
-        Self-taught developer with strong practical experience
-        in real-world web projects and production deployments.
+    <p>
+        Self-taught developer with strong real-world project experience.
     </p>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
     <h1><span>Experience</span></h1>
-    <p style="font-size:1.6rem; max-width:700px;">
-        Built multiple live websites, e-commerce systems,
-        game top-up platforms, AI tools, and personal brands.
+    <p>
+        Built live websites, e-commerce systems,
+        AI tools, and personal brands.
     </p>
 </section>
 
-<!-- Structured Data for Google -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Arun Regmi",
-  "url": "https://arunregmi.com.np",
-  "sameAs": [
-    "https://www.facebook.com/aruna.regmi.262052",
-    "https://www.instagram.com/arunregmi",
-    "mailto:kcaarun10@gmail.com"
-  ],
-  "jobTitle": "Web Developer",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "Arun Regmi Personal Projects"
-  }
+ "@context":"https://schema.org",
+ "@type":"Person",
+ "name":"Arun Regmi",
+ "url":"https://arunregmi.com.np",
+ "jobTitle":"Web Developer"
 }
 </script>
 
-<!-- Smooth Scroll JavaScript Only -->
+<!-- TOOLS JS -->
 <script>
-// Mobile Menu Toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const closeMenu = document.getElementById('close-menu');
-const mobileNav = document.getElementById('mobile-nav');
-const mobileLinks = document.querySelectorAll('.mobile-nav-links a');
+function pdfToJpg(){
+ const f=document.getElementById('pdfInput').files[0];
+ if(!f)return alert("Select a PDF");
+ const r=new FileReader();
+ r.onload=e=>{
+  pdfjsLib.getDocument(new Uint8Array(e.target.result)).promise.then(pdf=>{
+   pdf.getPage(1).then(p=>{
+    const v=p.getViewport({scale:1.5});
+    const c=document.createElement('canvas');
+    c.width=v.width;c.height=v.height;
+    p.render({canvasContext:c.getContext('2d'),viewport:v});
+    pdfOutput.innerHTML='';
+    pdfOutput.appendChild(c);
+   });
+  });
+ };
+ r.readAsArrayBuffer(f);
+}
 
-// Open mobile menu
-mobileMenu.addEventListener('click', () => {
-    mobileNav.classList.add('active');
-    document.body.style.overflow = 'hidden';
-});
+function compressImage(){
+ const f=imgInput.files[0];
+ if(!f)return alert("Select image");
+ const i=new Image();const r=new FileReader();
+ r.onload=e=>{
+  i.src=e.target.result;
+  i.onload=()=>{
+   const c=document.createElement('canvas');
+   c.width=i.width*0.6;c.height=i.height*0.6;
+   c.getContext('2d').drawImage(i,0,0,c.width,c.height);
+   const d=c.toDataURL("image/jpeg",0.6);
+   imgOutput.innerHTML=`<a href="${d}" download>Download</a>`;
+  }
+ };
+ r.readAsDataURL(f);
+}
 
-// Close mobile menu
-closeMenu.addEventListener('click', () => {
-    mobileNav.classList.remove('active');
-    document.body.style.overflow = 'auto';
-});
-
-// Close menu when clicking on a mobile link
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileNav.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-});
-
-// Close menu when clicking outside on mobile
-document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 995) {
-        if (!mobileNav.contains(e.target) && !mobileMenu.contains(e.target) && mobileNav.classList.contains('active')) {
-            mobileNav.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    }
-});
-
-// Smooth scroll for all anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            // Close mobile menu if open
-            if (mobileNav.classList.contains('active')) {
-                mobileNav.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-            
-            // Update active class in desktop nav
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-            });
-            this.classList.add('active');
-            
-            // Update active class in mobile nav
-            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === targetId) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Smooth scroll
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Update active nav on scroll
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const scrollPos = window.pageYOffset || document.documentElement.scrollTop;
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.clientHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            // Update desktop nav
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-            
-            // Update mobile nav
-            document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-    });
-});
+function generateQR(){
+ qrOutput.innerHTML="";
+ new QRCode(qrOutput,{text:qrText.value,width:150,height:150});
+}
 </script>
 
 </body>
-        </html>
+</html>
