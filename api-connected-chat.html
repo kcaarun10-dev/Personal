@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-9712141373432139">
+    <title>AI Chat with API Connection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+
+        /* Chat Styles */
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        .chat-header {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 12px 12px 0 0;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 18px;
+            max-width: 80%;
+        }
+
+        .bot {
+            background: #e9ecef;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        .user {
+            background: #667eea;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-input button {
+            margin-left: 10px;
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .error {
+            background: rgba(255,0,0,0.2);
+            color: #ff6b6b;
+        }
+
+        .success {
+            background: rgba(0,255,0,0.2);
+            color: #51cf66;
+        }
+
+        .loading {
+            background: rgba(255,193,7,0.2);
+            color: #ffa94d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🤖 AI Chat with API Connection</h1>
+        <div id="status" class="status">Initializing...</div>
+    </div>
+
+    <!-- Chat Interface -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            🤖 AI Assistant (API Connected)
+        </div>
+        
+        <div class="chat-messages" id="messages">
+            <div class="message bot">Hello! I'm connected to the API and ready to help you.</div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <button id="sendBtn">Send</button>
+        </div>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_CONFIG = {
+            apiKey: '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',
+            apiUrl: 'https://openrouter.ai/api/v1/chat/completions',
+            model: 'tngtech/deepseek-r1t2-chimera:free'
+        };
+
+        // DOM Elements
+        const statusDiv = document.getElementById('status');
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        const sendBtn = document.getElementById('sendBtn');
+
+        // Status function
+        function updateStatus(message, type = 'loading') {
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        // Test API Connection
+        async function testAPIConnection() {
+            updateStatus('Testing API connection...', 'loading');
+            
+            try {
+                const testResponse = await fetch(API_CONFIG.apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${API_CONFIG.apiKey}`,
+                        'Content-Type': 'application/json',
+                        'HTTP-Referer': window.location.origin,
+                        'X-Title': 'API Test'
+                    },
+                    body: JSON.stringify({
+                        model: API_CONFIG.model,
+                        messages: [
+                            {
+                                role: 'user',
+                                content: 'Hello, this is a connection test. Please respond with "API connected successfully".'
+                            }
+                        ],
+                        max_tokens: 50
+                    })
+                });
+
+                if (!testResponse.ok) {
+                    throw new Error(`HTTP ${testResponse.status}: ${testResponse.statusText}`);
+                }
+
+                const data = await testResponse.json();
+                const response = data.choices[0].message.content;
+                
+                if (response.includes('connected successfully') || response.toLowerCase().includes('connected')) {
+                    updateStatus('✅ API Connected Successfully!', 'success');
+                    addMessage('API connection test passed!', 'bot');
+                } else {
+                    updateStatus('⚠️ API Response Unexpected', 'error');
+                    addMessage(`API Response: ${response}`, 'bot');
+                }
+
+            } catch (error) {
+                updateStatus(`❌ API Connection Failed: ${error.message}`, 'error');
+                console.error('API Error:', error);
+            }
+        }
+
+        // Send message to API
+        async function sendMessageToAPI(message) {
+            if (!message.trim()) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            messageInput.value = '';
+
+            updateStatus('Sending message to AI...', 'loading');
+
+            try {
+                const response = await fetch(API_CONFIG.apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${API_CONFIG.apiKey}`,
+                        'Content-Type': 'application/json',
+                        'HTTP-Referer': window.location.origin,
+                        'X-Title': 'AI Assistant'
+                    },
+                    body: JSON.stringify({
+                        model: API_CONFIG.model,
+                        messages: [
+                            {
+                                role: 'system',
+                                content: `You are a helpful AI assistant. You are connected via OpenRouter API using the DeepSeek model. Be friendly and helpful. The user's email is kcaarun10@gmail.com.`
+                            },
+                            {
+                                role: 'user',
+                                content: message
+                            }
+                        ],
+                        max_tokens: 500,
+                        temperature: 0.7
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                const aiResponse = data.choices[0].message.content;
+                
+                addMessage(aiResponse, 'bot');
+                updateStatus('✅ Message sent successfully', 'success');
+
+            } catch (error) {
+                updateStatus(`❌ Error: ${error.message}`, 'error');
+                addMessage('Sorry, I encountered an error. Please try again.', 'bot');
+            }
+        }
+
+        // Add message to chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            messageDiv.textContent = text;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+
+        // Event listeners
+        sendBtn.addEventListener('click', () => {
+            sendMessageToAPI(messageInput.value);
+        });
+
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessageToAPI(messageInput.value);
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateStatus('🔄 Connecting to API...', 'loading');
+            
+            // Test connection after a short delay
+            setTimeout(() => {
+                testAPIConnection();
+            }, 1000);
+        });
+
+        // Log configuration (for debugging)
+        console.log('API Configuration:', {
+            apiUrl: API_CONFIG.apiUrl,
+            model: API_CONFIG.model,
+            apiKey: API_CONFIG.apiKey ? 'Present' : 'Missing'
+        });
+    </script>
+</body>
+</html>

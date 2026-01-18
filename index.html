@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="google-adsense-account" content="ca-pub-9712141373432139">
+  <title>Arun Regmi — Web Developer</title>
+  <link rel="icon" href="favicon.png" />
+
+  <!-- SEO -->
+  <meta name="description" content="Portfolio of Arun Regmi — Web developer from Nepal. Crafting fast, modern, accessible web experiences and useful online tools." />
+  <meta name="keywords" content="Arun Regmi, web developer, portfolio, Nepal, JavaScript, Firebase, UI/UX, Tools" />
+  <meta name="author" content="Arun Regmi" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Arun Regmi — Web Developer" />
+  <meta property="og:description" content="Crafting fast, modern, accessible web experiences and useful online tools." />
+  <meta property="og:image" content="main.jpg" />
+  <meta property="og:url" content="https://arunregmi.com.np" />
+
+  <!-- Icons & CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css?v=2.0" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="#home" class="logo" aria-label="Go to top">Arun</a>
+
+    <nav aria-label="Primary">
+      <a href="#home" class="active">Home</a>
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="tools.html">Tools</a>
+      <div class="menu-toggle" id="mobile-menu" aria-label="Open mobile menu" role="button" tabindex="0">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+      <div class="mobile-nav-header">
+        <a href="#home" class="logo">Arun</a>
+        <div class="close-menu" id="close-menu" role="button" tabindex="0" aria-label="Close menu">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </div>
+      </div>
+      <div class="mobile-nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="tools.html">Tools</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <h1>Building web experiences that matter.</h1>
+      <h3 class="typing-text">I'm a Web Developer</h3>
+      <p>I design and develop fast, modern, and accessible websites and useful online tools. I focus on performance, simplicity, and delightful user experience.</p>
+      <div class="social-icons" aria-label="Social links">
+        <a href="mailto:kcaarun10@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://www.facebook.com/aruna.regmi.262052" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/arunregmi.com.np/" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+      <div>
+        <a href="#contact" class="btn" aria-label="Contact Arun">Hire Me</a>
+        <a href="tools.html" class="btn" aria-label="Open Tools">Use Tools</a>
+        <button class="btn ai-chat-btn" id="ai-chat-btn" aria-label="Open AI Assistant">
+          <i class="fa-solid fa-comments"></i> AI Assistant
+        </button>
+      </div>
+    </div>
+    <div class="home-img" aria-hidden="true">
+      <img src="main.jpg" alt="Arun Regmi portrait" />
+    </div>
+  </section>
+
+  <!-- Stats / Trust -->
+  <section id="stats" aria-label="Highlights">
+    <div class="services-grid">
+      <div class="service-card"><div class="service-icon"><i class="fa-solid fa-rocket"></i></div><h3>Performance</h3><p>Fast-loading, optimized, Lighthouse-friendly builds.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fa-solid fa-shield"></i></div><h3>Security</h3><p>Best practices for secure and reliable web apps.</p></div>
+      <div class="service-card"><div class="service-icon"><i class="fa-solid fa-mobile"></i></div><h3>Responsive</h3><p>Beautiful on every screen, from phones to desktops.</p></div>
+    </div>
+  </section>
+
+  <!-- Work / Projects -->
+  <section id="work">
+    <h1><span>Selected Work</span></h1>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-image"><div class="project-placeholder"><i class="fa-solid fa-tools"></i></div></div>
+        <div class="project-content">
+          <h3>Online Tools Suite</h3>
+          <p>17+ tools including converters and generators with smooth UX and animations.</p>
+          <div class="project-tech"><span>HTML/CSS</span><span>JavaScript</span><span>PDF.js</span></div>
+          <a class="project-link" href="tools.html">Open Tools</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image"><div class="project-placeholder"><i class="fa-solid fa-store"></i></div></div>
+        <div class="project-content">
+          <h3>E-commerce Platform</h3>
+          <p>Full-featured e-commerce with payments, inventory, and admin dashboard.</p>
+          <div class="project-tech"><span>Firebase</span><span>JavaScript</span><span>Payments</span></div>
+          <a class="project-link" href="#">Coming soon</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-image"><div class="project-placeholder"><i class="fa-solid fa-brain"></i></div></div>
+        <div class="project-content">
+          <h3>AI Content Generator</h3>
+          <p>Multi-template content generation with customization and export.</p>
+          <div class="project-tech"><span>AI API</span><span>React</span><span>Node</span></div>
+          <a class="project-link" href="#">In development</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h1><span>Services</span></h1>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+        <h3>Web Development</h3>
+        <p>Custom websites and web apps focused on speed, accessibility, and UX.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-fire"></i></div>
+        <h3>Firebase Systems</h3>
+        <p>Realtime databases, auth, storage, and scalable cloud functions.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-brands fa-github"></i></div>
+        <h3>GitHub Hosting</h3>
+        <p>CI/CD, Pages, Actions, and modern deployment pipelines.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+        <h3>UI/UX Design</h3>
+        <p>Clean, intuitive interfaces with user-first design principles.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+        <h3>Domain & DNS</h3>
+        <p>Cloudflare optimization, SSL, routing, and DNS best practices.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-tools"></i></div>
+        <h3>Online Tools</h3>
+        <p>Custom tool development tailored to specific workflows.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h1><span>About</span></h1>
+    <div class="skills-container">
+      <div class="skills-category">
+        <h3>Frontend</h3>
+        <div class="skill-bars">
+          <div class="skill-item"><span>HTML/CSS</span><div class="skill-bar"><div class="skill-progress" data-progress="95"></div></div></div>
+          <div class="skill-item"><span>JavaScript</span><div class="skill-bar"><div class="skill-progress" data-progress="90"></div></div></div>
+          <div class="skill-item"><span>React/Vue</span><div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div></div>
+        </div>
+      </div>
+      <div class="skills-category">
+        <h3>Backend & Tools</h3>
+        <div class="skill-bars">
+          <div class="skill-item"><span>Firebase</span><div class="skill-bar"><div class="skill-progress" data-progress="88"></div></div></div>
+          <div class="skill-item"><span>GitHub</span><div class="skill-bar"><div class="skill-progress" data-progress="92"></div></div></div>
+          <div class="skill-item"><span>Cloudflare</span><div class="skill-bar"><div class="skill-progress" data-progress="85"></div></div></div>
+        </div>
+      </div>
+      <div class="skills-category">
+        <h3>Design & Optimization</h3>
+        <div class="skill-bars">
+          <div class="skill-item"><span>UI/UX</span><div class="skill-bar"><div class="skill-progress" data-progress="87"></div></div></div>
+          <div class="skill-item"><span>Performance</span><div class="skill-bar"><div class="skill-progress" data-progress="83"></div></div></div>
+          <div class="skill-item"><span>SEO</span><div class="skill-bar"><div class="skill-progress" data-progress="80"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h1><span>Contact</span></h1>
+    <p style="text-align:center; max-width:720px; margin:0 auto 2rem; color:#ccc; font-size:1.7rem;">Have a project in mind or need something custom? Let’s build it together.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-solid fa-envelope"></i></div>
+        <h3>Email</h3>
+        <p><a href="mailto:kcaarun10@gmail.com" style="color:#fff; text-decoration:underline;">kcaarun10@gmail.com</a></p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fa-brands fa-whatsapp"></i></div>
+        <h3>WhatsApp</h3>
+        <p><a href="https://wa.link/0mmt5c" style="color:#fff; text-decoration:underline;">+977 98-10975653</a></p>
+      </div>
+          </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Arun Regmi</h3>
+        <p>Creating modern web experiences with passion and precision.</p>
+        <div class="footer-social">
+          <a href="mailto:kcaarun10@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+          <a href="https://www.facebook.com/aruna.regmi.262052"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/arunregmi.com.np/"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.link/0mmt5c"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="tools.html">Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Services</h3>
+        <ul>
+          <li>Web Development</li>
+          <li>Firebase Systems</li>
+          <li>UI/UX Design</li>
+          <li>Online Tools</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: kcaarun10@gmail.com</p>
+        <p>WhatsApp: +977 98-10975653</p>
+                <p>Location: Nepal</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Arun Regmi. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- AI Chat Interface -->
+  <div class="ai-chat-container" id="ai-chat-container" aria-live="polite" aria-label="AI chat">
+    <div class="ai-chat-header" role="toolbar">
+      <div class="ai-chat-info">
+        <i class="fa-solid fa-comments"></i>
+        <h3>AI Assistant</h3>
+        <span class="ai-status online">Online</span>
+      </div>
+      <button class="ai-chat-close" id="ai-chat-close" aria-label="Close chat">
+        <i class="fa-solid fa-times"></i>
+      </button>
+    </div>
+
+    <div class="ai-chat-messages" id="ai-chat-messages">
+      <div class="ai-message ai-welcome show">
+        <div class="ai-avatar"><i class="fa-solid fa-comments"></i></div>
+        <div class="ai-message-content">
+          <p>Hello! I'm your AI assistant. Ask me anything about Arun's services, projects, or web development. Contact: <a href="mailto:kcaarun10@gmail.com" style="color:#4ade80">kcaarun10@gmail.com</a> | <a href="https://wa.link/0mmt5c" style="color:#4ade80">WhatsApp</a></p>
+        </div>
+      </div>
+      
+      <!-- AI Chat Suggestions -->
+      <div class="ai-suggestions" id="ai-suggestions">
+        <div class="suggestion-title">Quick Questions:</div>
+        <div class="suggestion-buttons">
+          <button class="suggestion-btn" data-message="What services do you offer?">
+            <i class="fa-solid fa-briefcase"></i>
+            <span>What services do you offer?</span>
+          </button>
+          <button class="suggestion-btn" data-message="Tell me about your projects">
+            <i class="fa-solid fa-code"></i>
+            <span>Tell me about your projects</span>
+          </button>
+          <button class="suggestion-btn" data-message="How can I contact you?">
+            <i class="fa-solid fa-envelope"></i>
+            <span>How can I contact you?</span>
+          </button>
+          <button class="suggestion-btn" data-message="What technologies do you use?">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span>What technologies do you use?</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ai-chat-input-container">
+      <div class="ai-input-wrapper">
+        <input type="text" id="ai-chat-input" placeholder="Type your message..." maxlength="500" aria-label="Type your message" />
+        <button class="ai-send-btn" id="ai-send-btn" aria-label="Send message"><i class="fa-solid fa-paper-plane"></i></button>
+      </div>
+      <div class="ai-typing-indicator" id="ai-typing-indicator" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Chat Floating Button -->
+  <button class="ai-chat-float-btn" id="ai-chat-float-btn" aria-label="Open chat">
+    <i class="fa-solid fa-comments"></i>
+    <span class="ai-notification-dot"></span>
+  </button>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arun Regmi",
+    "url": "https://arunregmi.com.np",
+    "jobTitle": "Web Developer"
+  }
+  </script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+    import { getAnalytics, isSupported } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-analytics.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDkVzt-fxgHRjJBhwFmNSpe9Fozph0fbMA",
+      authDomain: "arun-web-tools.firebaseapp.com",
+      projectId: "arun-web-tools",
+      storageBucket: "arun-web-tools.appspot.com",
+      messagingSenderId: "962977801556",
+      appId: "1:962977801556:web:89dd9205dafbc3255214c1",
+      measurementId: "G-CRZ3TF06L9"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    // Initialize Analytics where supported
+    isSupported().then((supported) => {
+      if (supported) {
+        getAnalytics(app);
+        console.log('Firebase Analytics initialized');
+      } else {
+        console.log('Firebase Analytics not supported in this environment');
+      }
+    }).catch((err) => {
+      console.warn('Firebase Analytics init error:', err);
+    });
+  </script>
+  <script src="script.js?v=2.0"></script>
+</body>
+</html>
