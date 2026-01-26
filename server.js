@@ -167,8 +167,40 @@ app.post('/api/ai-chat', async (req, res) => {
     }
     
     try {
-        // Simple rule-based responses for demo
-        // In production, you'd integrate with a real AI service
+        // Try Groq API first
+        const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${process.env.GROQ_API_KEY}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                model: 'llama-3.1-8b-instant',
+                messages: [
+                    {
+                        role: 'system',
+                        content: "You are a helpful AI assistant on arunregmi.com.np. Be concise and helpful. If asked for contact, use only: Email: kcaarun10@gmail.com and WhatsApp: +977 98-10975653. Do not mention LinkedIn. You are representing Arun Regmi, a web developer from Nepal."
+                    },
+                    { role: 'user', content: message }
+                ],
+                max_tokens: 800,
+                temperature: 0.7,
+                stream: false
+            })
+        });
+
+        if (groqResponse.ok) {
+            const data = await groqResponse.json();
+            const aiResponse = data?.choices?.[0]?.message?.content;
+            
+            res.json({
+                success: true,
+                response: aiResponse
+            });
+            return;
+        }
+        
+        // If Groq fails, use fallback responses
         const responses = {
             'services': 'I offer web development, Firebase systems, UI/UX design, GitHub hosting, domain & DNS setup, and custom online tools development.',
             'projects': 'I\'ve built an Online Tools Suite with 17+ tools, an E-commerce Platform, and an AI Content Generator. You can check out the tools page!',
@@ -180,7 +212,6 @@ app.post('/api/ai-chat', async (req, res) => {
         
         let response = 'Thank you for your message! For specific inquiries about my services, projects, or to discuss your project needs, please contact me directly at kcaarun10@gmail.com or WhatsApp +977 98-10975653.';
         
-        // Check for keywords
         const lowerMessage = message.toLowerCase();
         for (const [key, value] of Object.entries(responses)) {
             if (lowerMessage.includes(key)) {
