@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 10000; // Render uses port 10000
+const PORT = process.env.PORT || 3000; // Vercel uses port 3000
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 // Production middleware
